@@ -26,7 +26,7 @@ public class Plane : MonoBehaviour
 
         rigidbody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = sprites[Random.Range(0,3)];
+        spriteRenderer.sprite = sprites[Random.Range(0,4)];
     }
 
     private void FixedUpdate()
@@ -88,5 +88,16 @@ public class Plane : MonoBehaviour
             lastPosition = newPostion;
         }
        
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        spriteRenderer.color = Color.red;
+        
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        spriteRenderer.color = Color.white;
     }
 }

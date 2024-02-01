@@ -21,7 +21,7 @@ public class NewBehaviourScript : MonoBehaviour
         timerValue += Time.deltaTime;
         if (timerValue > timerTarget)
         {
-            Instantiate(planePrefab,new Vector3(Random.Range(-5,5), Random.Range(-5,5),0), Quaternion.Euler(0f,0f,Random.Range(0,360f)));
+            Instantiate(planePrefab,new Vector3(Random.Range(-5,5), Random.Range(-5,5),0), Quaternion.Euler(0f,0f,Random.Range(-180f,180f)));
             timerValue = 0;
             timerTarget = Random.Range(1,5);
         }

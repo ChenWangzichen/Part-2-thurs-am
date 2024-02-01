@@ -22,11 +22,13 @@ public class Plane : MonoBehaviour
     {
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.positionCount = 1;
-        lineRenderer.SetPosition(0,transform.position);
+        lineRenderer.SetPosition(0,transform.position + new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0f));
+
+        GetComponent<Transform>().rotation = Quaternion.Euler(0f, 0f, Random.Range(-180f, 180f));
 
         rigidbody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = sprites[Random.Range(0,3)];
+        spriteRenderer.sprite = sprites[Random.Range(0,4)];
     }
 
     private void FixedUpdate()

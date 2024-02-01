@@ -17,6 +17,7 @@ public class Plane : MonoBehaviour
     public Sprite[] sprites;
     
     
+    
 
     private void Start()
     {
@@ -68,6 +69,11 @@ public class Plane : MonoBehaviour
                 lineRenderer.positionCount--;
             }
         }
+
+        if (transform.position.x > 15 || transform.position.x < -15 || transform.position.y > 7 || transform.position.y < -7)
+        {
+            Destroy(gameObject) ;
+        }
     }
 
     private void OnMouseDown()
@@ -93,7 +99,14 @@ public class Plane : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         spriteRenderer.color = Color.red;
-        
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if(Vector3.Distance(transform.position, other.transform.position) < 0.5)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

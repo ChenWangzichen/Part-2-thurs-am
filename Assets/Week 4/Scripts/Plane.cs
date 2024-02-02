@@ -10,14 +10,15 @@ public class Plane : MonoBehaviour
     LineRenderer lineRenderer;
     Vector2 currentPosition;
     Rigidbody2D rigidbody;
-    public float speed = Random.Range(1,3);
+    public float speed;
     public AnimationCurve landing;
     float landingTimer;
     SpriteRenderer spriteRenderer;
     public Sprite[] sprites;
-    
-    
-    
+    public bool land;
+
+
+
 
     private void Start()
     {
@@ -30,6 +31,7 @@ public class Plane : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = sprites[Random.Range(0,4)];
+        speed = Random.Range(1, 3);
     }
 
     private void FixedUpdate()
@@ -46,8 +48,9 @@ public class Plane : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKey(KeyCode.Space))
+        if(land == true)
         {
+
             landingTimer += 0.5f * Time.deltaTime;
             float interpolation = landing.Evaluate(landingTimer);
             if (transform.localScale.z < 0.1f)

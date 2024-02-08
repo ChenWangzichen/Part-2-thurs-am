@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -19,10 +20,7 @@ public class Weapon : MonoBehaviour
     }
     void Update()
     {
-        if ()
-        {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject, 5);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -1490,7 +1490,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1923150393934631268, guid: 38cf590dbf47e104cbad86e7a1060829, type: 3}
       propertyPath: m_Value
-      value: 4.98
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923150393934631268, guid: 38cf590dbf47e104cbad86e7a1060829, type: 3}
+      propertyPath: m_Interactable
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1923150393934631268, guid: 38cf590dbf47e104cbad86e7a1060829, type: 3}
       propertyPath: m_WholeNumbers

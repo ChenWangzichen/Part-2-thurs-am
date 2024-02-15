@@ -12,4 +12,5 @@ public class HealthBar : MonoBehaviour
     {
         slider.value -= damage;
     }
+   
 }

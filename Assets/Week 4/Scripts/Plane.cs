@@ -9,7 +9,7 @@ public class Plane : MonoBehaviour
     Vector2 lastPosition;
     LineRenderer lineRenderer;
     Vector2 currentPosition;
-    Rigidbody2D rigidbody;
+    Rigidbody2D rigidb;
     public float speed;
     public AnimationCurve landing;
     float landingTimer;
@@ -28,7 +28,7 @@ public class Plane : MonoBehaviour
 
         GetComponent<Transform>().rotation = Quaternion.Euler(0f, 0f, Random.Range(-180f, 180f));
 
-        rigidbody = GetComponent<Rigidbody2D>();
+        rigidb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = sprites[Random.Range(0,4)];
         speed = Random.Range(1, 3);
@@ -41,9 +41,9 @@ public class Plane : MonoBehaviour
         {
             Vector2 direction = points[0] - currentPosition;
             float angle = Mathf.Atan2( direction.x, direction.y ) * Mathf.Rad2Deg;
-            rigidbody.rotation = -angle;
+            rigidb.rotation = -angle;
         }
-        rigidbody.MovePosition(rigidbody.position + (Vector2)transform.up * speed * Time.deltaTime);
+        rigidb.MovePosition(rigidb.position + (Vector2)transform.up * speed * Time.deltaTime);
     }
 
     private void Update()

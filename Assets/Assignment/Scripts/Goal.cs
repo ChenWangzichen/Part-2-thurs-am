@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Goal : MonoBehaviour
 {
@@ -16,6 +17,10 @@ public class Goal : MonoBehaviour
     private void Update()
     {
         scoreText.text = score.ToString();
+        if (score == 60)
+        {
+            SceneManager.LoadScene(3);
+        }
     }
     private void FixedUpdate()
     {

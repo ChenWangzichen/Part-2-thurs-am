@@ -14,7 +14,6 @@ public class JellyBean : MonoBehaviour
     public GameObject cherry;
     int currentCherry;
     int charryLife = 5;
-    bool hit;
     public Animator animator;
     // Start is called before the first frame update
     void Start()
@@ -79,4 +78,6 @@ public class JellyBean : MonoBehaviour
             SceneManager.LoadScene(2);
         }
     }
+
+   
 }

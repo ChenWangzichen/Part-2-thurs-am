@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class JellyBean : MonoBehaviour
 {
@@ -13,16 +14,16 @@ public class JellyBean : MonoBehaviour
     public GameObject cherry;
     int currentCherry;
     int charryLife = 5;
-    public bool withCharry;
-    
+    bool hit;
     public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
         currentCherry = charryLife;
         jelly = GetComponent<Rigidbody2D>();
-        NoCharry();
+        animator = GetComponent<Animator>();
         destination = (Vector2)transform.position;
+
     }
 
     // Update is called once per frame
@@ -32,6 +33,14 @@ public class JellyBean : MonoBehaviour
         {
             destination = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
+
+        if (movement.x !=0 || movement.y != 0)
+        {
+            animator.SetFloat("Horizontal",movement.normalized.x);
+            animator.SetFloat("Vertical", movement.normalized.y);
+        }
+
+        animator.SetFloat("Speed", movement.sqrMagnitude);
     }
 
     private void FixedUpdate()
@@ -46,20 +55,28 @@ public class JellyBean : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        currentCherry -= 1;
-        currentCherry = Mathf.Clamp(currentCherry, 0, charryLife);
-        NoCharry();
+        if (cherry.activeInHierarchy)
+        {
+            SendMessage("LoseCherry", 1);
+        }
+        
+        
     }
     public void WithCharry()
     {
         cherry.SetActive(true);
-        withCharry = true;
     }
-    
 
-    public void NoCharry() 
+    public void LoseCherry(int oneCherry)
     {
+        
+        currentCherry -= oneCherry;
+        currentCherry = Mathf.Clamp(currentCherry, 0, charryLife);
         cherry.SetActive(false);
-        withCharry = false;
+
+        if (currentCherry == 0 )
+        {
+            SceneManager.LoadScene(2);
+        }
     }
 }

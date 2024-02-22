@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1395326079895624509}
+  - component: {fileID: 3033177594671051036}
   - component: {fileID: 7081676453435453874}
   - component: {fileID: 3994167227218348429}
   - component: {fileID: 296894370680881099}
-  - component: {fileID: 3033177594671051036}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -36,6 +36,21 @@ Transform:
   - {fileID: 2515746746879016262}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3033177594671051036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4773071071693740646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9605471c75ae17740ada0743fd5970a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 0}
+  originalColor: {r: 0.50980395, g: 0, b: 0, a: 1}
+  speed: 1000
 --- !u!212 &7081676453435453874
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -150,20 +165,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &3033177594671051036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4773071071693740646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9605471c75ae17740ada0743fd5970a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
-  originalColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &6726296713802032702
 GameObject:
   m_ObjectHideFlags: 0

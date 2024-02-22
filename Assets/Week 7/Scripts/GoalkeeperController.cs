@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.VisualScripting;
 
 public class GoalkeeperController : MonoBehaviour
 {
@@ -12,7 +13,8 @@ public class GoalkeeperController : MonoBehaviour
     Vector2 position;
     Player selectedPlayer;
     Vector2 distance;
-
+    public float speed = 3;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -33,11 +35,8 @@ public class GoalkeeperController : MonoBehaviour
             position = (goalCenter.position + selectedPlayer.transform.position) / 2;
         }
 
+        rbGoalkeeper.MovePosition(Vector2.MoveTowards(rbGoalkeeper.transform.position, position, speed * Time.deltaTime));
 
-        rbGoalkeeper.MovePosition(position);
     }
-    
- 
-
 
 }

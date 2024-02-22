@@ -17,9 +17,9 @@ public class Player : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        Selected(true);
+        Controller.SetSelectedPlayer(this);
     }
-    void Selected(bool isSeclected)
+    public void Selected(bool isSeclected)
     {
         if (isSeclected)
         {

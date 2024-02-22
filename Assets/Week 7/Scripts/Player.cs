@@ -7,15 +7,27 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public SpriteRenderer spriteRenderer;
+    public Color originalColor;
+    
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        Selected(false);
+    }
+    private void OnMouseDown()
+    {
+        Selected(true);
+    }
+    void Selected(bool isSeclected)
+    {
+        if (isSeclected)
+        {
+            spriteRenderer.color = Color.blue;
+        } else 
+        { 
+            spriteRenderer.color = originalColor;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetMouseButton(
-    }
 }

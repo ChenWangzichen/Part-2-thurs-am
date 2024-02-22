@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public SpriteRenderer spriteRenderer;
+    SpriteRenderer spriteRenderer;
     public Color originalColor;
     Rigidbody2D rbPlayer;
     public float speed = 100;
